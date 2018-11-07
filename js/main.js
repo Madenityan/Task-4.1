@@ -15,12 +15,21 @@
 /*------------------------- 1 ------------------------------*/
 let items = [5, 10, 15];
 
-function myForEach(arr, callback) {
+function myForEach(arr = [], callback = () => {}) {
     for (let i = 0; i < arr.length; i++) {
         callback(arr[i], i, arr);
     }
 }
 myForEach(items);
+
+myForEach(items, item => {
+    console.log(item);
+});
+
+/*------------------------- 2 ------------------------------*/
+
+
+
 
 
 
