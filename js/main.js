@@ -67,7 +67,6 @@ let arrFilter = ['Apple','Orange', 'Berry', 'Strawberry'];
 let newArrFilter = [];
 
 function myFilter(arr = [], callback = () => {}) {
-
     for (let i = 0; i < arr.length; i++) {
         if(arr[i].length > 5) {
             newArrFilter.push(arr[i]);
@@ -78,7 +77,19 @@ function myFilter(arr = [], callback = () => {}) {
 myFilter(arrFilter);
 console.log(newArrFilter);
 
+/*------------------------- 5 ------------------------------*/
 
+let arrPush = [4, 7, 8];
+
+function myPush(arr = [], callback = () => {}) {
+
+    arrPush[arrPush.length] = 'Hello!';
+    for(let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+    }
+}
+
+myPush(arrPush);
 
 
 
