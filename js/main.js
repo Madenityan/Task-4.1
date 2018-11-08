@@ -61,6 +61,22 @@ function mySort(arr = [], callback = () => {}) {
 
 console.log(mySort([100,50,608,790]));
 
+/*------------------------- 4 ------------------------------*/
+
+let arrFilter = ['Apple','Orange', 'Berry', 'Strawberry'];
+let newArrFilter = [];
+
+function myFilter(arr = [], callback = () => {}) {
+
+    for (let i = 0; i < arr.length; i++) {
+        if(arr[i].length > 5) {
+            newArrFilter.push(arr[i]);
+        }
+    }
+}
+
+myFilter(arrFilter);
+console.log(newArrFilter);
 
 
 
