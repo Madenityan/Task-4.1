@@ -35,27 +35,31 @@ function myMap(arr = [], callback = () => {}) {
     for (let i = 0; i < arr.length; i++) {
         resultArr.push(callback(arr[i], i, arr));
     }
-
     return resultArr;
 }
 
 let resultMap = myMap(digest,(item, index) => {
     return item * 2;
 });
+
 console.log(resultMap);
 
 /*------------------------- 3 ------------------------------*/
 
-let arrSort = ['30', '40', '50', '60'];
-
-function mySort() {
-
-
+function mySort(arr = [], callback = () => {}) {
+    for (let i = 0; i < arr.length; i++) {
+        for(let m = i; m < arr.length; m++) {
+            if (arr[i] < arr[m]) {
+                let initialVal = arr[i];
+                arr[i] = arr[m];
+                arr[m] = initialVal;
+            }
+        }
+    }
+    return arr;
 }
 
-mySort(arrSort);
-
-
+console.log(mySort([100,50,608,790]));
 
 
 
