@@ -12,92 +12,77 @@
 // // myForEach = () => arr.forEach
 
 /*------------------------- 1 ------------------------------*/
-let items = [5, 10, 15];
+let items = [1,2,3];
 
-function myForEach(arr = [], callback = () => {}) {
-    for (let i = 0; i < arr.length; i++) {
-        callback(arr[i], i, arr);
+Array.prototype.myForEach = function(callback) {
+    for (let i = 0; i < this.length; i++) {
+        callback(this[i]);
     }
-}
-myForEach(items);
+};
 
-myForEach(items, item => {
-    console.log(item);
-});
+items.myForEach(number => console.log(number * 2));
 
 /*------------------------- 2 ------------------------------*/
 
 let digest = [5, 6, 7];
 
-function myMap(arr = [], callback = () => {}) {
+Array.prototype.myMap = function(callback) {
     let resultArr = [];
 
-    for (let i = 0; i < arr.length; i++) {
-        resultArr.push(callback(arr[i], i, arr));
+    for (let i = 0; i < this.length; i++) {
+        resultArr.push(callback(this[i]));
     }
     return resultArr;
-}
+};
 
-let resultMap = myMap(digest,(item, index) => {
-    return item * 2;
-});
-
-console.log(resultMap);
+digest.myMap(item => console.log(item * 2));
 
 /*------------------------- 3 ------------------------------*/
 
-function mySort(arr = [], callback = () => {}) {
-    for (let i = 0; i < arr.length; i++) {
-        for(let m = i; m < arr.length; m++) {
-            if (arr[i] < arr[m]) {
-                let initialVal = arr[i];
-                arr[i] = arr[m];
-                arr[m] = initialVal;
+let sort = [100,50,608,790];
+
+Array.prototype.mySort = function (callback) {
+    for (let i = 0; i < this.length; i++) {
+        for(let m = i; m < this.length; m++) {
+            if (this[i] < this[m]) {
+                let initialVal = this[i];
+                this[i] = this[m];
+                this[m] = initialVal;
             }
         }
     }
-    return arr;
-}
+};
 
-console.log(mySort([100,50,608,790]));
+sort.mySort((a, b) => a - b);
+console.log(sort);
 
 /*------------------------- 4 ------------------------------*/
 
 let arrFilter = ['Apple','Orange', 'Berry', 'Strawberry'];
 let newArrFilter = [];
 
-function myFilter(arr = [], callback = () => {}) {
-    for (let i = 0; i < arr.length; i++) {
-        if(arr[i].length > 5) {
-            newArrFilter.push(arr[i]);
+Array.prototype.myFilter = function(callback) {
+    for (let i = 0; i < this.length; i++) {
+        if(this[i].length > 5) {
+            newArrFilter.push(this[i]);
         }
     }
-}
+};
 
-myFilter(arrFilter);
+arrFilter.myFilter(item => newArrFilter);
 console.log(newArrFilter);
 
 /*------------------------- 5 ------------------------------*/
 
 let arrPush = [4, 7, 8];
 
-function myPush(arr = [], callback = () => {}) {
+Array.prototype.myPush = function (callback) {
 
     arrPush[arrPush.length] = 'Hello!';
-    for(let i = 0; i < arr.length; i++) {
-        console.log(arr[i]);
+    for(let i = 0; i < this.length; i++) {
+        console.log(this[i]);
     }
-}
+};
 
-myPush(arrPush);
-
-
-
-
-
-
-
-
-
-
-
+arrPush.myPush(item => arrPush);
+console.log(arrPush);
